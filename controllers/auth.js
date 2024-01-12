@@ -106,7 +106,7 @@ exports.login = async(req, res)=> {
             id: User._id,
             role: User.role,
         }
-        //verify password and generate a JWt token 🔎
+        //verify password and generate a JWT token 🔎
         if(await bcrypt.compare(password,User.password)){
             //if password matched
              //now lets create a JWT token
@@ -136,7 +136,7 @@ exports.login = async(req, res)=> {
             })
 
         }else{
-            //password donot matched
+            //password donot match
             return res.status(403).json({
                 success: false,
                 message: "Password incorrects⚠️"
